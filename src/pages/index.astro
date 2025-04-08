@@ -11,13 +11,32 @@
     gtag('js', new Date());
     gtag('config', 'G-CSDMWS894L');
 
-    // Redirect after delay
+    // Get URL parameter to determine where to redirect
+    const params = new URLSearchParams(window.location.search);
+    const target = params.get("target");
+    let redirectUrl = "";
+
+    if (target === "l3harris") {
+      redirectUrl = "https://www.l3harris.com/all-capabilities/tactical-network-rover-tnr-2i-wideband-isr-handheld-transceiver?utm_source=QR&utm_medium=redirect&utm_campaign=SOF205&utm_content=L3Harris";
+    } else if (target === "bdatech") {
+      redirectUrl = "https://www.bdatech.com/4-port-hub-ii?utm_source=QR&utm_medium=redirect&utm_campaign=HubLaunch&utm_content=BDAtech";
+    } else if (target === "mohoc") {
+      redirectUrl = "https://www.mohoc.com/mohoc-2/?utm_source=QR&utm_medium=redirect&utm_campaign=SOF%20Week%202025&utm_content=MOHOC";
+    } else if (target === "raintech") {
+      redirectUrl = "https://raintechsolutions.com/product-solutions/hail/?utm_source=QR&utm_medium=redirect&utm_campaign=SOF%20Week%202025&utm_content=Rain%20Technology%20Solutions";
+    } else if (target === "viasat") {
+      redirectUrl = "https://www.viasat.com/products/cybersecurity/mobile-enterprise-security/?utm_source=QR&utm_medium=redirect&utm_campaign=SOF%20Week%202025&utm_content=Viasat";
+    } else {
+      redirectUrl = "https://willowy-gumdrop-f8cf71.netlify.app"; // fallback
+    }
+
     setTimeout(function () {
-      window.location.href = "https://www.l3harris.com/all-capabilities/tactical-network-rover-tnr-2i-wideband-isr-handheld-transceiver?utm_source=QR&utm_medium=redirect&utm_campaign=SOF205&utm_content=L3Harris";
+      window.location.href = redirectUrl;
     }, 1500);
   </script>
 </head>
 <body>
-  <p>Redirecting to L3Harris...</p>
+  <p>Redirecting...</p>
 </body>
 </html>
+
