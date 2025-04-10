@@ -16,11 +16,13 @@
     const campaign = params.get("utm_campaign") || "SOF Week 2025";
     const content = params.get("utm_content") || "unknown";
 
+    // Send UTM values via config so GA4 attributes properly
     gtag('config', 'G-CSDMWS894L', {
-      'campaign_source': source,
-      'campaign_medium': medium,
-      'campaign_name': campaign,
-      'campaign_content': content
+      send_page_view: true,
+      campaign_source: source,
+      campaign_medium: medium,
+      campaign_name: campaign,
+      campaign_content: content
     });
 
     // Get URL parameter to determine where to redirect
@@ -61,12 +63,15 @@
       redirectUrl = "https://willowy-gumdrop-f8cf71.netlify.app"; // fallback
     }
 
+    // Delay redirect to ensure GA4 has time to capture the event
     setTimeout(function () {
       window.location.href = redirectUrl;
-    }, 1500);
+    }, 3000);
   </script>
 </head>
 <body>
   <p>Redirecting...</p>
 </body>
 </html>
+
+     
