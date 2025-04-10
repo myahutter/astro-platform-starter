@@ -9,43 +9,54 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-CSDMWS894L');
+
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get("utm_source") || "QR";
+    const medium = params.get("utm_medium") || "qr";
+    const campaign = params.get("utm_campaign") || "SOF Week 2025";
+    const content = params.get("utm_content") || "unknown";
+
+    gtag('config', 'G-CSDMWS894L', {
+      'campaign_source': source,
+      'campaign_medium': medium,
+      'campaign_name': campaign,
+      'campaign_content': content
+    });
 
     // Get URL parameter to determine where to redirect
-    const params = new URLSearchParams(window.location.search);
     const target = params.get("target");
     let redirectUrl = "";
 
     if (target === "l3harris") {
-      redirectUrl = "https://www.l3harris.com/all-capabilities/tactical-network-rover-tnr-2i-wideband-isr-handheld-transceiver?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=L3%20Harris";
+      redirectUrl = "https://www.l3harris.com/all-capabilities/tactical-network-rover-tnr-2i-wideband-isr-handheld-transceiver";
     } else if (target === "bdatech") {
-      redirectUrl = "https://www.bdatech.com/4-port-hub-ii?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=Black%20Diamond";
+      redirectUrl = "https://www.bdatech.com/4-port-hub-ii";
     } else if (target === "mohoc") {
-      redirectUrl = "https://www.mohoc.com/mohoc-2/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=MOHOC";
+      redirectUrl = "https://www.mohoc.com/mohoc-2/";
     } else if (target === "raintech") {
-      redirectUrl = "https://raintechsolutions.com/product-solutions/hail/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=Rain%20Technology%20Solutions";
+      redirectUrl = "https://raintechsolutions.com/product-solutions/hail/";
     } else if (target === "viasat") {
-      redirectUrl = "https://www.viasat.com/products/cybersecurity/mobile-enterprise-security/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=Viasat";
+      redirectUrl = "https://www.viasat.com/products/cybersecurity/mobile-enterprise-security/";
     } else if (target === "kagwerks") {
-      redirectUrl = "https://kagwerks.com/dock/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=K%C3%A4gwerks";
+      redirectUrl = "https://kagwerks.com/dock/";
     } else if (target === "omtac") {
-      redirectUrl = "https://omtac-defense.com/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=OMTAC";
+      redirectUrl = "https://omtac-defense.com/";
     } else if (target === "xcover6") {
-      redirectUrl = "https://www.samsung.com/us/business/mobile/phones/galaxy-xcover-pro/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=XCover6%20Pro";
+      redirectUrl = "https://www.samsung.com/us/business/mobile/phones/galaxy-xcover-pro/";
     } else if (target === "s23te") {
-      redirectUrl = "https://www.samsung.com/us/business/solutions/industries/government/tactical-edition/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=S23%20TE";
+      redirectUrl = "https://www.samsung.com/us/business/solutions/industries/government/tactical-edition/";
     } else if (target === "tabactive5") {
-      redirectUrl = "https://www.samsung.com/us/business/solutions/industries/government/tactical-edition/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=TabActive5%20TE";
+      redirectUrl = "https://www.samsung.com/us/business/solutions/industries/government/tactical-edition/";
     } else if (target === "watch7") {
-      redirectUrl = "https://www.samsung.com/us/watches/galaxy-watch7/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=Galaxy%20Watch%207";
+      redirectUrl = "https://www.samsung.com/us/watches/galaxy-watch7/";
     } else if (target === "glenair") {
-      redirectUrl = "https://www.glenair.com/star-pan/index.htm?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=Glenair";
+      redirectUrl = "https://www.glenair.com/star-pan/index.htm";
     } else if (target === "gox") {
-      redirectUrl = "https://www.goxlabs.com/government?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=GoX";
+      redirectUrl = "https://www.goxlabs.com/government";
     } else if (target === "galvion") {
-      redirectUrl = "https://www.galvion.com/?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=Glavion";
+      redirectUrl = "https://www.galvion.com/";
     } else if (target === "juggernaut") {
-      redirectUrl = "https://juggernautcase.com/categories/velox-ecosystem.html?utm_source=QR&utm_medium=&utm_campaign=SOF%20Week%202025&utm_content=Jaggernaut";
+      redirectUrl = "https://juggernautcase.com/categories/velox-ecosystem.html";
     } else {
       redirectUrl = "https://willowy-gumdrop-f8cf71.netlify.app"; // fallback
     }
